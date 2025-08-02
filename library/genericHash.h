@@ -21,6 +21,7 @@ class HashMap{
     void deleteFromTable(K key);
     void display();
     void resize();
+    void setValue(K key, int incrBy);
     Node<K, V>* search(K key);
 };
 template<typename K, typename V>
@@ -138,4 +139,17 @@ void HashMap<K,V> :: display(){
     }
     cout<<"}\n";
     cout<<length<<"\n";
+}
+
+template<typename K, typename V>
+void HashMap<K,V> :: setValue(K key, int incrBy){
+    int index =  getIndex(key, length);
+    Node<K,V>* temp = arr[index];
+
+    while(temp && temp -> key != key){
+        temp = temp -> next;
+    }
+    if(temp){
+        temp -> val= (temp -> val) + incrBy;
+    }
 }

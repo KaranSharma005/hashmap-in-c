@@ -41,6 +41,7 @@ int main(){
             cout<<"Invalid choice\n\n";
         }   
     }while(choice);
-    
+    obj.setValue(1,1);
+    obj.display();
     return 0;
 }
