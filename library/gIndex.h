@@ -1,27 +1,27 @@
 #include<iostream>
 using namespace std;
 
-int getIndex(int key){
-    return key%10;
+int getIndex(int key, int size){
+    return key%size;
 }
 
-int getIndex(float key){
-    return ((int)key)%10;
+int getIndex(float key, int size){
+    return ((int)key)%size;
 }
 
-int getIndex(string key){
+int getIndex(string key, int size){
     int num = 0;
-    int size = key.size();
-    for(int i=0;i<size;i++){
+    int s = key.size();
+    for(int i=0;i<s;i++){
         num+=(int)key[i];
     }
-    return num%10;
+    return num%size;
 }
 
-int getIndex(char* key){
+int getIndex(char* key, int size){
     int num = 0;
     for(int i=0;key[i] !='\0';i++){
         num+=(int)key[i];
     }
-    return num%10;
+    return num%size;
 }

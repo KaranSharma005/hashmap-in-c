@@ -4,29 +4,43 @@
 using namespace std;
 
 int main(){
-    // int key, value;
-    // cout<<" Enter a key : \n";
-    // cin>>key;
-
-    // cout<<"Enter a value : \n";
-    // cin>>value;
     int mapLength;
     cout<<"Enter the length of map : ";
     cin>>mapLength;
-    
-
+    HashMap<int , int> obj(mapLength);
     int choice;
-    HashMap<int , int> obj;
-    obj.addInTable(1,2);
-    obj.addInTable(3,4);
-
-    obj.display();
-
-    Node<int, int>* result = obj.search(1);
-    if(result != NULL)
-    cout<<"The value for key bcd is : "<<result -> val<<"\n\n";
-
-    obj.deleteFromTable(1);
-    obj.display();
+    do{
+        cout<<"Enter 1 to add into hashmap\n";
+        cout<<"Enter 2 to delete from hashmap\n";
+        cout<<"Enter 3 to display the map\n";
+        cout<<"Enter 4 to search for key\n";
+        cout<<"Enter 0 to exit\n";
+        cin>>choice;
+        int key, value;
+        if(choice == 1){
+            cout<<"Enter key : ";
+            cin>>key;
+            cout<<"Enter value : ";
+            cin>>value;
+            obj.addInTable(key,value);
+        }
+        else if(choice == 2){
+            cout<<"Enter key : ";
+            cin>>key;
+            obj.deleteFromTable(key);
+        }
+        else if(choice == 3){
+            obj.display();
+        }
+        else if(choice == 4){
+            cout<<"Enter key to search : ";
+            cin>>key;
+            obj.search(key);
+        }
+        else{
+            cout<<"Invalid choice\n\n";
+        }   
+    }while(choice);
+    
     return 0;
 }
